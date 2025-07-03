@@ -1,3 +1,5 @@
 /.vs/
 /bin/
+/obj/
 secret-config.json
+*.user
