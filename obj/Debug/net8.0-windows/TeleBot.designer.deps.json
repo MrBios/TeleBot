@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "WTelegramClient/4.3.6-dev.6": {
+        "runtime": {
+          "lib/net8.0/WTelegramClient.dll": {
+            "assemblyVersion": "4.3.6.0",
+            "fileVersion": "4.3.6.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WTelegramClient/4.3.6-dev.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Pn0XG86RrBQMK37O0wMBI874fi1lrUMPHrrABQ/as8nchk+yDwO1DmYRtL9lQ4MdWuuZ4UcyakdRw3J4cZ1zA==",
+      "path": "wtelegramclient/4.3.6-dev.6",
+      "hashPath": "wtelegramclient.4.3.6-dev.6.nupkg.sha512"
+    }
+  }
+}
