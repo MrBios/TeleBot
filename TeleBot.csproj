@@ -10,12 +10,17 @@
 
   <ItemGroup>
     <None Remove="config.json" />
+    <None Remove="last" />
     <None Remove="secret-config.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="last">
+      <Generator></Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -26,5 +31,13 @@
   <ItemGroup>
     <PackageReference Include="WTelegramClient" Version="4.3.6-dev.6" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Windows\GetPasswordDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

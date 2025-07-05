@@ -1,0 +1,24 @@
+﻿<Page x:Class="TeleBot.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeleBot.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="450"
+      Title="LoginPage">
+
+    <Grid>
+        <StackPanel x:Name="phonePanel" Visibility="Visible" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Введите номер телефона в международном формате" HorizontalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="phoneBox" VerticalAlignment="Center" Margin="20,5,20,10" FontSize="20"/>
+            <Button Name="submit_phone" Content="Отправить" HorizontalAlignment="Center" Padding="25,10" FontSize="20" Click="submit_phone_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

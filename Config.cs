@@ -1,5 +1,4 @@
-﻿using grdlic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,7 +22,16 @@ namespace TeleBot
             secret = JsonSerializer.Deserialize<Dictionary<string, string>>(reader.ReadToEnd())!;
         }
 
-        public static int api_id => Convert.ToInt32(secret["api_id"]);
+        public static void save()
+        {
+            File.WriteAllText("config.json", JsonSerializer.Serialize(config));
+        }
+
+        public static string api_id => secret["api_id"];
         public static string api_hash => secret["api_hash"];
+        public static string last_acc {
+            get { return File.ReadAllText("last"); }
+            set { File.WriteAllText("last", value); }
+        }
     }
 }
