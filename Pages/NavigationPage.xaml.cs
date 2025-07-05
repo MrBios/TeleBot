@@ -26,6 +26,7 @@ namespace TeleBot.Pages
 
             pages.Add(("Получение групп и каналов", new GetAllGroupsPage(inst)));
             pages.Add(("Получение чатов", new GetAllChatsPage(inst)));
+            pages.Add(("Массовая отправка сообщений", new MassMessagesPage(inst)));
 
             foreach(var page in pages)
             {
