@@ -139,7 +139,7 @@ namespace TeleBot.Pages
             string json = JsonSerializer.Serialize<saveMessage>(rawMessage, new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
 
             Directory.CreateDirectory(path);
-            await File.WriteAllTextAsync(Path.Combine(path, message.id + ".message"), json);
+            await File.WriteAllTextAsync(Path.Combine(path, $"message_{message.id.ToString()}.json"), json);
 
             if (message.media != null)
             {
