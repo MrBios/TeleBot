@@ -33,5 +33,8 @@ namespace TeleBot
             get { return File.ReadAllText("last"); }
             set { File.WriteAllText("last", value); }
         }
+        public static int sendMessageDelay => Convert.ToInt32(config["SendMessageDelay"]);
+        public static int getMessageDelay => Convert.ToInt32(config["GetMessageDelay"]);
+        public static int getMessageBatch => Convert.ToInt32(config["GetMessageBatch"]);
     }
 }

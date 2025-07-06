@@ -71,7 +71,7 @@ namespace TeleBot.Pages
                         }
                         await inst.account.SendMessageAsync(dialog!.ToInputPeer(), msg);
 
-                        await Task.Delay(1000);
+                        await Task.Delay(Config.sendMessageDelay);
                     }
 
                     Application.Current.Dispatcher.Invoke(() => { start.IsEnabled = true; MessageBox.Show($"Отправка {ids.Length.ToString()} сообщений завершена"); });
