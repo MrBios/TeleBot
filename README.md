@@ -21,8 +21,8 @@ TeleBot — WPF-приложение для работы с Telegram при по
 ## Требования
 
 - Windows 10/11
-- .NET 8.0 или выше
-- (Telegram API ID и Hash|https://my.telegram.org/auth?to=apps)
+- [.NET 8.0 или выше](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- [Telegram API ID и Hash](https://my.telegram.org/auth?to=apps)
 
 ## Запуск
 
