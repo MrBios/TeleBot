@@ -9,8 +9,6 @@
       Title="NavigationPage">
 
     <ScrollViewer>
-        <StackPanel x:Name="panel" Orientation="Vertical">
-            
-        </StackPanel>
+        <StackPanel x:Name="panel" Orientation="Vertical"/>
     </ScrollViewer>
 </Page>

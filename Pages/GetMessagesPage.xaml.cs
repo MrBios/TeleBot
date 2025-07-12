@@ -29,12 +29,12 @@ namespace TeleBot.Pages
     /// </summary>
     public partial class GetMessagesPage : Page
     {
-        MainWindow inst;
-        public GetMessagesPage(MainWindow _inst)
+        Client client;
+        public GetMessagesPage(Client _client)
         {
             InitializeComponent();
             onlyChats.IsChecked = true;
-            inst = _inst;
+            client = _client;
         }
 
         private void onlyChats_Checked(object sender, RoutedEventArgs e)
@@ -69,11 +69,11 @@ namespace TeleBot.Pages
                     Dictionary<long, ChatBase> chats = null;
                     if (dialog)
                     {
-                        users = (await inst.account.Messages_GetAllDialogs()).users;
+                        users = (await client.Messages_GetAllDialogs()).users;
                     }
                     else
                     {
-                        chats = (await inst.account.Messages_GetAllChats()).chats;
+                        chats = (await client.Messages_GetAllChats()).chats;
                     }
 
                     foreach (long id in ids.Select(i => Convert.ToInt64(i)))
@@ -139,7 +139,7 @@ namespace TeleBot.Pages
             string json = JsonSerializer.Serialize<saveMessage>(rawMessage, new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
 
             Directory.CreateDirectory(path);
-            await File.WriteAllTextAsync(Path.Combine(path, $"message_{message.id.ToString()}.json"), json);
+            await File.WriteAllTextAsync(Path.Combine(path, $"message_{message.id.ToString()}.message"), json);
 
             if (message.media != null)
             {
@@ -151,7 +151,7 @@ namespace TeleBot.Pages
                     if (size != null)
                     {
                         using var fs = File.Create(Path.Combine(path, "media", $"photo_{message.id.ToString()}.jpg"));
-                        await inst.account.DownloadFileAsync(photo, fs, size);
+                        await client.DownloadFileAsync(photo, fs, size);
                         fs.Close();
                     }
                 }
@@ -166,7 +166,7 @@ namespace TeleBot.Pages
                     else ext = "." + doc.mime_type.Split('/').Last();
 
                     using var fs = File.Create(Path.Combine(path, "media", $"doc_{message.id.ToString()}" + ext));
-                    await inst.account.DownloadFileAsync(doc, fs);
+                    await client.DownloadFileAsync(doc, fs);
                 }
                 else if (message.media is TL.MessageMediaContact contact)
                 {
@@ -188,7 +188,7 @@ namespace TeleBot.Pages
 
             while (!done)
             {
-                var history = await inst.account.Messages_GetHistory(chat, offset_id: offsetId, limit: batchSize);
+                var history = await client.Messages_GetHistory(chat, offset_id: offsetId, limit: batchSize);
 
                 if (history.Messages == null || history.Messages.Count() == 0)
                     break;

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WTelegram;
 
 namespace TeleBot.Pages
 {
@@ -20,12 +21,12 @@ namespace TeleBot.Pages
     /// </summary>
     public partial class GetAllChatsPage : Page
     {
-        MainWindow inst;
+        Client client;
         string ids = "";
-        public GetAllChatsPage(MainWindow _inst)
+        public GetAllChatsPage(Client _client)
         {
             InitializeComponent();
-            inst = _inst;
+            client = _client;
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace TeleBot.Pages
                 await Task.Delay(10000);
                 Application.Current.Dispatcher.Invoke(() => { getBut.IsEnabled = true; });
             });
-            var res = await inst.account.Messages_GetAllDialogs();
+            var res = await client.Messages_GetAllDialogs();
             text.Document.Blocks.Clear();
             text.AppendText("-----\n\n");
             ids = "";

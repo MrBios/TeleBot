@@ -1,0 +1,25 @@
+﻿<Page x:Class="TeleBot.Pages.MassFileMessages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeleBot.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MassFileMessages">
+
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300" HorizontalAlignment="Center"/>
+        <Label Content="Список ID для отправки" HorizontalAlignment="Center"/>
+        <Button Name="loadMesgsButt" Content="Загрузить сообщения из файлов" HorizontalAlignment="Center" Padding="4" Margin="0,10,0,0" Click="loadMesgsButt_Click"/>
+        <Label x:Name="loadedLabel" Content="Еще не загружены сообщения" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="doMediaBox" Content="Прикреплять Медиа-файлы" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+        <Button x:Name="sendButt" Content="Отправить" HorizontalAlignment="Center" Padding="12" FontSize="20" Click="sendButt_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </StackPanel>
+</Page>

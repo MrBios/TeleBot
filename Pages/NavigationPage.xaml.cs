@@ -12,22 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WTelegram;
 
 namespace TeleBot.Pages
 {
     public partial class NavigationPage : Page
     {
-        MainWindow inst = null;
+        Client client = null;
         List<(string, Page)> pages = new List<(string, Page)>();
-        public NavigationPage(MainWindow inst)
+        public NavigationPage(Client _client)
         {
             InitializeComponent();
-            this.inst = inst;
+            this.client = _client;
 
-            pages.Add(("Получение групп и каналов", new GetAllGroupsPage(inst)));
-            pages.Add(("Получение чатов", new GetAllChatsPage(inst)));
-            pages.Add(("Массовая отправка сообщений пользователям и ботам", new MassMessagesPage(inst)));
-            pages.Add(("Получение сообщений", new GetMessagesPage(inst)));
+            addPage("Получение групп и каналов", new GetAllGroupsPage(client));
+            addPage("Получение чатов", new GetAllChatsPage(client));
+            addPage("Получение сообщений", new GetMessagesPage(client));
+            addPage("Массовая отправка текстовых сообщений", new MassMessagesPage(client));
+            addPage("Массовая рассылка сообщений с файлов", new MassFileMessages(client));
 
             foreach(var page in pages)
             {
@@ -40,6 +42,11 @@ namespace TeleBot.Pages
                 
                 panel.Children.Add(butt);
             }
+        }
+
+        private void addPage(string name, Page page)
+        {
+            pages.Add((name, page));
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

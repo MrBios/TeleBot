@@ -57,7 +57,7 @@ namespace TeleBot.Pages
                 }
             };
             instance.account = new Client(config);
-            this.NavigationService?.Navigate(new NavigationPage(instance));
+            this.NavigationService?.Navigate(new NavigationPage(instance.account));
         }
     }
 }

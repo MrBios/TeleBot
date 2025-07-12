@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MimeTypesMap" Version="1.0.9" />
     <PackageReference Include="WTelegramClient" Version="4.3.6-dev.6" />
   </ItemGroup>
 

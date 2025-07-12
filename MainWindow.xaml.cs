@@ -137,7 +137,7 @@ namespace TeleBot
         {
             if(account != null && account.User != null)
             {
-                frame.Content = new NavigationPage(this);
+                frame.Content = new NavigationPage(account);
             }
         }
     }
