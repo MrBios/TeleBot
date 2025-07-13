@@ -10,13 +10,13 @@
 
     <Grid Background="{DynamicResource TgPanelBrush}">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300"/>
+            <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
             <Label Content="Список ID для сбора сообщений" HorizontalAlignment="Center"/>
             <CheckBox x:Name="onlyChats" Content="Личные чаты и боты" Checked="onlyChats_Checked"/>
             <CheckBox x:Name="onlyChannels" Content="Каналы и группы" Margin="0,7" Checked="onlyChannels_Checked"/>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Макс. кол-во:"/>
-                <TextBox x:Name="maxBox" Margin="5,0,0,0" HorizontalAlignment="Stretch" MinWidth="100"/>
+                <TextBox x:Name="maxBox" Margin="5,0,0,0" HorizontalAlignment="Stretch" MinWidth="100" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
             </StackPanel>
             <Button x:Name="start" Content="Получить сообщения" Click="start_Click" Margin="0,8,0,0" Style="{StaticResource TgButtonStyle}"/>
         </StackPanel>

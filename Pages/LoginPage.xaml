@@ -12,7 +12,7 @@
         <StackPanel x:Name="phonePanel" Visibility="Visible" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Введите номер телефона в международном формате" HorizontalAlignment="Center" FontSize="15"/>
             <Label Content="(с плюсиком)" HorizontalAlignment="Center" FontSize="12"/>
-            <TextBox x:Name="phoneBox" VerticalAlignment="Center" Margin="20,5,20,10" FontSize="20"/>
+            <TextBox x:Name="phoneBox" VerticalAlignment="Center" Margin="20,5,20,10" FontSize="20" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
             <Button x:Name="submit_phone" Content="Войти" Click="submit_phone_Click" Margin="0,8,0,0" Style="{StaticResource TgButtonStyle}"/>
         </StackPanel>
     </Grid>

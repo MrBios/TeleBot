@@ -10,7 +10,7 @@ namespace TeleBot.Types
     class saveMessage
     {
         public long id { get; set; }
-        public long from_id { get; set; }
+        public long? from_id { get; set; }
         public string message { get; set; }
         public string mediaType { get; set; }
         public DateTime date { get; set; }
@@ -48,17 +48,25 @@ namespace TeleBot.Types
                     mediaType = "none";
             }
 
-            return new saveMessage()
+            try
             {
-                id = msg.id,
-                from_id = msg.from_id,
-                message = msg.message,
-                mediaType = mediaType,
-                date = msg.date,
-                edit_date = msg.edit_date,
-                entities = msg.entities,
-                reply_to = msg.reply_to
-            };
+                return new saveMessage()
+                {
+                    id = msg.id,
+                    from_id = (msg.from_id == null) ? null : msg.from_id.ID,
+                    message = msg.message,
+                    mediaType = mediaType,
+                    date = msg.date,
+                    edit_date = msg.edit_date,
+                    entities = msg.entities,
+                    reply_to = msg.reply_to
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error converting message: {ex.Message}");
+                return null;
+            }
         }
     }
 }
