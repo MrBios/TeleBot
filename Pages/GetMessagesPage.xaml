@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GetMessagesPage">
 
-    <Grid>
+    <Grid Background="{DynamicResource TgPanelBrush}">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300"/>
             <Label Content="Список ID для сбора сообщений" HorizontalAlignment="Center"/>
@@ -18,13 +18,7 @@
                 <Label Content="Макс. кол-во:"/>
                 <TextBox x:Name="maxBox" Margin="5,0,0,0" HorizontalAlignment="Stretch" MinWidth="100"/>
             </StackPanel>
-            <Button x:Name="start" Content="Начать" Margin="10" HorizontalAlignment="Center" FontSize="20" Padding="10" Click="start_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Button x:Name="start" Content="Получить сообщения" Click="start_Click" Margin="0,8,0,0" Style="{StaticResource TgButtonStyle}"/>
         </StackPanel>
     </Grid>
 </Page>

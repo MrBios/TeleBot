@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeleBot"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+        Title="MainWindow" Height="600" Width="1000" Closing="Window_Closing"
+        Background="{DynamicResource TgBackgroundBrush}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*"/>
@@ -13,36 +14,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.18*"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="Aqua" CornerRadius="20" Margin="5">
+        <Border Background="{DynamicResource TgPanelBrush}" CornerRadius="20" Margin="5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Content="Аккаунт" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                <Label x:Name="accountLabel" Grid.Row="1" Content="не залогинен" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <Label Content="Аккаунт" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="{DynamicResource TgTextBrush}"/>
+                <Label x:Name="accountLabel" Grid.Row="1" Content="не залогинен" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="{DynamicResource TgTextBrush}"/>
             </Grid>
         </Border>
-        <Button x:Name="loginButton" Content="Войти" Grid.Column="1" Background="Green" Margin="5" Click="loginButton_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius"  Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="Инструменты" Grid.Column="2" HorizontalAlignment="Left" Margin="5" Padding="20,0" Click="Button_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius"  Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="10" BorderBrush="Black" BorderThickness="1" CornerRadius="20">
-            <Frame x:Name="frame" />
+        <Button x:Name="loginButton" Content="Войти" Grid.Column="1" Margin="5" Click="loginButton_Click" Style="{StaticResource TgButtonStyle}" Background="{DynamicResource TgAccentBrush}"/>
+        <Button Content="Инструменты" Grid.Column="2" HorizontalAlignment="Left" Margin="5" Padding="20,0" Click="Button_Click"
+                Style="{StaticResource TgButtonStyle}"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="10" BorderBrush="{DynamicResource TgBorderBrush}" BorderThickness="1" CornerRadius="20" Background="{DynamicResource TgPanelBrush}">
+            <Frame x:Name="frame" NavigationUIVisibility="Hidden" />
         </Border>
     </Grid>
 </Window>

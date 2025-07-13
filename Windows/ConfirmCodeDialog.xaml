@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeleBot.Windows"
         mc:Ignorable="d"
-        Title="ConfirmCodeDialog" Height="200" Width="400">
+        Title="ConfirmCodeDialog" Height="200" Width="400"
+        Background="{DynamicResource TgBackgroundBrush}">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Введите код подтверждения из сообщения на"/>
-        <Label x:Name="phone"/>
-        <TextBox x:Name="codeBox" Margin="20,0,20,10" FontSize="20" HorizontalContentAlignment="Center"/>
-        <Button Name="confirm" Content="Подтвердить" HorizontalAlignment="Center" Padding="8" Click="confirm_Click">
+        <Label Content="Введите код подтверждения из сообщения на" Foreground="{DynamicResource TgTextSecondaryBrush}"/>
+        <Label x:Name="phone" Foreground="{DynamicResource TgTextBrush}"/>
+        <TextBox x:Name="codeBox" Margin="20,0,20,10" FontSize="20" HorizontalContentAlignment="Center" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
+        <Button Name="confirm" Content="Подтвердить" HorizontalAlignment="Center" Padding="8" Click="confirm_Click" Background="{DynamicResource TgAccentBrush}" Foreground="{DynamicResource TgTextBrush}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

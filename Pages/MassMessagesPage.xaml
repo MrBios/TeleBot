@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MassMessagesPage">
 
-    <Grid>
+    <Grid Background="{DynamicResource TgPanelBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -18,14 +18,14 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
-            <RichTextBox x:Name="idsBox" MinHeight="100" />
-            <Label Content="Список id юзеров для отправки" HorizontalAlignment="Right"/>
+            <RichTextBox x:Name="idsBox" MinHeight="100" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
+            <Label Content="Список id юзеров для отправки" HorizontalAlignment="Right" Foreground="{DynamicResource TgTextSecondaryBrush}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
-            <RichTextBox x:Name="text" MinHeight="100"/>
+            <RichTextBox x:Name="text" MinHeight="100" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label Content="Текст для отправки"/>
-                <Button Name="info" Content="?" Padding="9,0" Cursor="Help" Click="info_Click" Background="Yellow" FontWeight="Bold">
+                <Label Content="Текст для отправки" Foreground="{DynamicResource TgTextSecondaryBrush}"/>
+                <Button Name="info" Content="?" Padding="9,0" Cursor="Help" Click="info_Click" Background="{DynamicResource TgAccentBrush}" Foreground="{DynamicResource TgTextBrush}" FontWeight="Bold" Style="{StaticResource TgButtonStyle}">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="30"/>
@@ -34,6 +34,6 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Button x:Name="start" Content="Отправить" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5" Margin="10" Click="start_Click"/>
+        <Button x:Name="start" Content="Отправить" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5" Margin="10" Click="start_Click" Background="{DynamicResource TgAccentBrush}" Foreground="{DynamicResource TgTextBrush}" FontWeight="Bold" Style="{StaticResource TgButtonStyle}"/>
     </Grid>
 </Page>

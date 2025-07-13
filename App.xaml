@@ -5,6 +5,59 @@
              StartupUri="MainWindow.xaml"
              ShutdownMode="OnLastWindowClose">
     <Application.Resources>
-         
+        <!-- Telegram Dark Theme Colors -->
+        <Color x:Key="TgBackground">#FF181A20</Color>
+        <Color x:Key="TgPanel">#FF23262F</Color>
+        <Color x:Key="TgAccent">#FF5A93E6</Color>
+        <Color x:Key="TgText">#FFE6E6E6</Color>
+        <Color x:Key="TgTextSecondary">#FFB0B0B0</Color>
+        <Color x:Key="TgError">#FFED4242</Color>
+        <Color x:Key="TgSuccess">#FF4BB34B</Color>
+        <Color x:Key="TgButton">#FF23262F</Color>
+        <Color x:Key="TgButtonHover">#FF2A2D37</Color>
+        <Color x:Key="TgButtonDisabled">#FF23262F</Color>
+        <Color x:Key="TgButtonDisabledText">#FF6C6C6C</Color>
+        <Color x:Key="TgBorder">#FF2A2D37</Color>
+        <SolidColorBrush x:Key="TgBackgroundBrush" Color="{StaticResource TgBackground}"/>
+        <SolidColorBrush x:Key="TgPanelBrush" Color="{StaticResource TgPanel}"/>
+        <SolidColorBrush x:Key="TgAccentBrush" Color="{StaticResource TgAccent}"/>
+        <SolidColorBrush x:Key="TgTextBrush" Color="{StaticResource TgText}"/>
+        <SolidColorBrush x:Key="TgTextSecondaryBrush" Color="{StaticResource TgTextSecondary}"/>
+        <SolidColorBrush x:Key="TgErrorBrush" Color="{StaticResource TgError}"/>
+        <SolidColorBrush x:Key="TgSuccessBrush" Color="{StaticResource TgSuccess}"/>
+        <SolidColorBrush x:Key="TgButtonBrush" Color="{StaticResource TgButton}"/>
+        <SolidColorBrush x:Key="TgButtonHoverBrush" Color="{StaticResource TgButtonHover}"/>
+        <SolidColorBrush x:Key="TgButtonDisabledBrush" Color="{StaticResource TgButtonDisabled}"/>
+        <SolidColorBrush x:Key="TgButtonDisabledTextBrush" Color="{StaticResource TgButtonDisabledText}"/>
+        <SolidColorBrush x:Key="TgBorderBrush" Color="{StaticResource TgBorder}"/>
+        <!-- Button Style -->
+        <Style TargetType="Button" x:Key="TgButtonStyle">
+            <Setter Property="Background" Value="{StaticResource TgButtonBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TgTextBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TgBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Margin="{TemplateBinding Margin}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource TgButtonHoverBrush}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{StaticResource TgButtonDisabledBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TgButtonDisabledTextBrush}"/>
+                    <Setter Property="Cursor" Value="Arrow"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

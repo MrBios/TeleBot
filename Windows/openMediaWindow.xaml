@@ -1,0 +1,8 @@
+<Window x:Class="TeleBot.Windows.openMediaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Media" Height="500" Width="700" ResizeMode="CanResize"
+        Background="{DynamicResource TgBackgroundBrush}">
+    <Grid x:Name="MainGrid" Background="{DynamicResource TgPanelBrush}">
+    </Grid>
+</Window>

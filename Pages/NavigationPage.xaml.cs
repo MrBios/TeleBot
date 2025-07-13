@@ -1,59 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WTelegram;
 
 namespace TeleBot.Pages
 {
     public partial class NavigationPage : Page
     {
-        Client client = null;
-        List<(string, Page)> pages = new List<(string, Page)>();
+        private readonly Client client;
+        private readonly Dictionary<string, Page> pages = new();
+
         public NavigationPage(Client _client)
         {
             InitializeComponent();
-            this.client = _client;
+            client = _client;
 
-            addPage("Получение групп и каналов", new GetAllGroupsPage(client));
-            addPage("Получение чатов", new GetAllChatsPage(client));
-            addPage("Получение сообщений", new GetMessagesPage(client));
-            addPage("Массовая отправка текстовых сообщений", new MassMessagesPage(client));
-            addPage("Массовая рассылка сообщений с файлов", new MassFileMessages(client));
+            AddPage("Получение групп и каналов", new GetAllGroupsPage(client));
+            AddPage("Получение чатов", new GetAllChatsPage(client));
+            AddPage("Получение сообщений", new GetMessagesPage(client));
+            AddPage("Массовая отправка текстовых сообщений", new MassMessagesPage(client));
+            AddPage("Массовая рассылка сообщений с файлов", new MassFileMessages(client));
+            AddPage("Проверка сообщений", new CheckMessagesPage(client));
 
-            foreach(var page in pages)
+            foreach (var page in pages)
             {
-                Button butt = new Button();
-                butt.Content = page.Item1;
-                butt.Margin = new Thickness(10);
-                butt.VerticalAlignment = VerticalAlignment.Center;
-                butt.Padding = new Thickness(5);
-                butt.Click += button_Click;
-                
-                panel.Children.Add(butt);
+                panel.Children.Add(CreateNavButton(page.Key));
             }
         }
 
-        private void addPage(string name, Page page)
+        private void AddPage(string name, Page page)
         {
-            pages.Add((name, page));
+            pages[name] = page;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private Button CreateNavButton(string name)
         {
-            string name = ((Button)sender).Content.ToString();
+            var button = new Button
+            {
+                Content = name,
+                Margin = new Thickness(10),
+                VerticalAlignment = VerticalAlignment.Center,
+                Padding = new Thickness(5),
+            };
+            button.Style = (Style)Application.Current.Resources["TgButtonStyle"];
+            button.Click += Button_Click;
+            return button;
+        }
 
-            NavigationService?.Navigate(pages.Find(i => { return i.Item1 == name; }).Item2);
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Content is string name && pages.TryGetValue(name, out var page))
+            {
+                NavigationService?.Navigate(page);
+            }
+            else
+            {
+                MessageBox.Show("Страница не найдена.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

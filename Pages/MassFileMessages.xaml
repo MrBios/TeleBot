@@ -7,19 +7,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MassFileMessages">
-
-    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300" HorizontalAlignment="Center"/>
-        <Label Content="Список ID для отправки" HorizontalAlignment="Center"/>
-        <Button Name="loadMesgsButt" Content="Загрузить сообщения из файлов" HorizontalAlignment="Center" Padding="4" Margin="0,10,0,0" Click="loadMesgsButt_Click"/>
-        <Label x:Name="loadedLabel" Content="Еще не загружены сообщения" HorizontalAlignment="Center"/>
-        <CheckBox x:Name="doMediaBox" Content="Прикреплять Медиа-файлы" HorizontalAlignment="Center" Margin="0,10,0,20"/>
-        <Button x:Name="sendButt" Content="Отправить" HorizontalAlignment="Center" Padding="12" FontSize="20" Click="sendButt_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-    </StackPanel>
+    <Grid Background="{DynamicResource TgPanelBrush}">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RichTextBox x:Name="idsBox" MinHeight="100" MaxWidth="300" HorizontalAlignment="Center" Background="{DynamicResource TgButtonBrush}" Foreground="{DynamicResource TgTextBrush}"/>
+            <Label Content="Список ID для отправки" HorizontalAlignment="Center" Foreground="{DynamicResource TgTextSecondaryBrush}"/>
+            <Button x:Name="loadMesgsButt" Content="Загрузить сообщения" Click="loadMesgsButt_Click" Margin="0,8,0,0" Style="{StaticResource TgButtonStyle}"/>
+            <Label x:Name="loadedLabel" Content="Еще не загружены сообщения" HorizontalAlignment="Center" Foreground="{DynamicResource TgTextSecondaryBrush}"/>
+            <CheckBox x:Name="doMediaBox" Content="Прикреплять Медиа-файлы" HorizontalAlignment="Center" Margin="0,10,0,20" Foreground="{DynamicResource TgTextBrush}"/>
+            <Button x:Name="sendButt" Content="Отправить" Click="sendButt_Click" Margin="0,8,0,0" Style="{StaticResource TgButtonStyle}"/>
+        </StackPanel>
+    </Grid>
 </Page>
